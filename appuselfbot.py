@@ -62,7 +62,7 @@ try:
     token = os.environ['TOKEN']
     heroku = True
 except KeyError:
-    heroku = False
+    heroku = True
 
 if _test_run:
     try:
@@ -95,7 +95,7 @@ def wizard():
     print("-------------------------------------------------------------")
     config["token"] = input("| ").strip().strip('"')
     
-    config["cmd_prefix"] = False
+    config["cmd_prefix"] = True
     while not config["cmd_prefix"]:
         print("\nEnter the command prefix you want to use for main commands (e.g. if you enter > you will use commands like so: >about).")
         print("-------------------------------------------------------------")
@@ -103,7 +103,7 @@ def wizard():
         if not config["cmd_prefix"]:
             print("Empty command prefixes are invalid.")
             
-    config["customcmd_prefix"] = False
+    config["customcmd_prefix"] = True
     while not config["customcmd_prefix"]:
         print("\nEnter the command prefix you want to use for custom commands (commands that you add to the bot yourself with custom replies). Using the same prefix as the main command prefix is allowed, but not recommended.")
         print("-------------------------------------------------------------")
